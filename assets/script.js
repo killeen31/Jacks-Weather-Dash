@@ -65,7 +65,39 @@ function weatherDashboard(searchTerm) {
     var img = $('<img>').attr('src', "https://openweatherapp.p.rapidapi.com/" + data.weather[0].icon + ".png");
 
 
-    
+    var card = $('<div>').addClass("card");
+    var cardBody = $('<div>').addClass("card-body");
+    var cityTemp = $('<p>').adClass("card-text").text('Temperature:' + data.main.cityTemp + '°F');
+    var cityWind = $('<p>').addClass("card-text").text('Wind Speed:' + data.cityWind.speed + 'MPH');
+    var cityHumid = $('<p>').addClass("card-text").text('Humidity:' + data.main.humidity + "%")
+    console.log(data)
+
+    header.append(img);
+    cardBody.append(title, temp, humid, wind);
+    card.append(cardBody);
+    $('#today').append(card);
+    console.log(data);
+
+    function cityForecast(searchTerm) {
+        $.ajax({
+            type: 'GET', 
+            urle: "https://openweatherapp.p.rapidapi.com/" + searchTerm + '34125e1a8fmshf014bf9227a0b3ep1322c1jsn35d470e7e88c'
+        
+        
+        }).then(function (data) {
+            console.log(data);
+            $('#forecast').html('<h4 class=\"mt-3\'>3-Day Forecast:</h4>').append('div class=\'row\'>');
+        }
+        
+        
+        
+        
+        
+        )};
+
+
+
+
 
 
 
