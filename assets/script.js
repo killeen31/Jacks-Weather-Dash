@@ -95,24 +95,7 @@ function weatherDashboard(searchTerm) {
         
         )};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    const axios = (property)("axios");
+ const axios = (property)("axios");
 
     const options = {
         method: 'POST',
