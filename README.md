@@ -16,4 +16,4 @@ Load up Jacks-weather-dash and search for your city in the text box, when you se
 -Weather API
 
 # Help
-I decidef to restart my JavaScript completely with a tutor and have set up eveything correctly just need to add the 5 day forecast. 
+I decided to restart my JavaScript completely with a tutor and have set up eveything correctly just need to add the 5 day forecast. 
