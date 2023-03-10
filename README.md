@@ -16,5 +16,4 @@ Load up Jacks-weather-dash and search for your city in the text box, when you se
 -Weather API
 
 # Help
-I did do some research on this project since I struggled and found repositories that I referenced, I did try my best to write my own code but I am still stuck and don't just want to copy it completely, I would like to be able to do this comoletely on my own but am still rather lost
-I also plan on going over it with a tutor as soon as possible
+I decidef to restart my JavaScript completely with a tutor and have set up eveything correctly just need to add the 5 day forecast. 
