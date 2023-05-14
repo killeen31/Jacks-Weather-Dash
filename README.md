@@ -17,3 +17,4 @@ Load up Jacks-weather-dash and search for your city in the text box, when you se
 
 # Help
 I decided to restart my JavaScript completely with a tutor and have set up eveything correctly just need to add the 5 day forecast. 
+<img width="723" alt="Screenshot 2023-03-09 at 9 31 54 PM" src="https://user-images.githubusercontent.com/119546445/224216834-e1dee694-3a6d-4931-9b8e-c968a53d539d.png">
