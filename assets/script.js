@@ -16,6 +16,64 @@ async function getWeather(cityName) {
     return data
 }
 
+async function displayCurrentConditions () {
+    const cityName = data.name
+    const date = new Date(data.dt * 1000)
+    const iconCode = data.weather[0].icon
+    const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`
+    const temp = data.main.temp
+    const wind = data.wind.speed
+    const humidity = data.main.humidity
+    const uvIndex = await getUvIndex(data.coord.lat, data.coord.lon)
+    const currentConditions = await getWeather(searchValue.value)
+    console.log(currentConditions)
+}
+
+currentConditionsEl.innerHTML = `
+<h2>${cityName}</h2>
+<p>Date: ${date}</p>
+<img src="${iconUrl}" alt="Weather Icon">
+<p>Temperature: ${temp} °F</p>
+<p>Wind Speed: ${wind} mph</p>
+<p>Humidity: ${humidity}%</p>
+<p>UV Index: ${uvIndex}</p>
+`;
+
+
+async function displayForecast(data) {
+    const forecastData = data.list.filter((item) => item.dt_txt.includes('12:00:00'))
+    const forecast = await getForecast(searchValue.value)
+    console.log(forecast)
+    let forecastHtml = ''
+}
+
+forecastData.forEach((day) => {
+    const date = new Date(day.dt * 1000)
+    const iconCode = day.weather[0].icon
+    const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`
+    const temp = day.main.temp
+    const wind = day.wind.speed
+    const humidity = day.main.humidity
+
+    forecastHtml += `
+    <div>
+      <p>Date: ${date}</p>
+      <img src="${iconUrl}" alt="Weather Icon">
+      <p>Temperature: ${temp} °F</p>
+      <p>Wind Speed: ${wind} mph</p>
+      <p>Humidity: ${humidity}%</p>
+    </div>
+  `;
+});
+
+forecastEl.innerHTML = forecastHtml;
+
+
+
+
+   
+
+
 
 
 
