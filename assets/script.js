@@ -9,14 +9,20 @@ const searchInputEl = document.getElementById('search-input')
 const currentConditionsEl = document.getElementById('current-conditions')
 const forecastEl = document.getElementById('forecast')
 
-async function getWeather(cityName) {
+function getWeather(cityName) {
+    console.log("hello")
+    console.log(cityName)
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${apiKey}`
-    const response = await fetch("2ebc4e2b6834276fea4d0908ecca1c61")
-    const data = await response.json()
+    const response = fetch(apiUrl)
+        .then(function (response) {
+            return response.json
+        })
+    const data = response.json()
+    console.log(data)
     return data
 }
 
-async function displayCurrentConditions () {
+async function displayCurrentConditions() {
     const cityName = data.name
     const date = new Date(data.dt * 1000)
     const iconCode = data.weather[0].icon
@@ -29,15 +35,7 @@ async function displayCurrentConditions () {
     console.log(currentConditions)
 }
 
-currentConditionsEl.innerHTML = `
-<h2>${cityName}</h2>
-<p>Date: ${date}</p>
-<img src="${iconUrl}" alt="Weather Icon">
-<p>Temperature: ${temp} °F</p>
-<p>Wind Speed: ${wind} mph</p>
-<p>Humidity: ${humidity}%</p>
-<p>UV Index: ${uvIndex}</p>
-`;
+// currentConditionsEl.innerHTML = `
 
 
 async function displayForecast(data) {
@@ -47,31 +45,15 @@ async function displayForecast(data) {
     let forecastHtml = ''
 }
 
-forecastData.forEach((day) => {
-    const date = new Date(day.dt * 1000)
-    const iconCode = day.weather[0].icon
-    const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`
-    const temp = day.main.temp
-    const wind = day.wind.speed
-    const humidity = day.main.humidity
 
-    forecastHtml += `
-    <div>
-      <p>Date: ${date}</p>
-      <img src="${iconUrl}" alt="Weather Icon">
-      <p>Temperature: ${temp} °F</p>
-      <p>Wind Speed: ${wind} mph</p>
-      <p>Humidity: ${humidity}%</p>
-    </div>
-  `;
-});
 
+searchBtn.addEventListener("click", getWeather);
 forecastEl.innerHTML = forecastHtml;
 
 
 
 
-   
+
 
 
 
@@ -92,14 +74,14 @@ const currentHumidity = document.getElementById('current-humidity')
 function currentCity() {
     var cityName = searchValue.value.trim()
     var currentWeather = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${apiKey}`
-    fetch (currentWeather)
-.then ((response)=> {
-    return response.json()
-})
-.then ((data)=>{
-    console.log(data)
-})
-    
+    fetch(currentWeather)
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            console.log(data)
+        })
+
 }
 
 searchBtn.addEventListener("click", currentCity)
